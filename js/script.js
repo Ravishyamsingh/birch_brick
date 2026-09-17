@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navToggle.addEventListener('click', function () {
       var isOpen = mobileNav.classList.toggle('is-open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
       document.body.classList.toggle('nav-open', isOpen);
     });
     mobileNav.querySelectorAll('a').forEach(function (link) {
