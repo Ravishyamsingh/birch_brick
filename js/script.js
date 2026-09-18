@@ -48,13 +48,42 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-reveal]').forEach(observeReveal);
 
   var PROPERTIES = [
-    { unit: 'Unit 01', type: '1 RK', rooms: ['1 Room', '1 Kitchen', '1 Drawing Room', '1 Bathroom'], capacity: '2 Persons', facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '10% off', daily: 2944, monthly: 88320 },
-    { unit: 'Unit 02', type: '2 RK', rooms: ['2 Rooms', '1 Kitchen', '1 Drawing Room', '1 Bathroom',  '1 Balcony'], capacity: '4 Persons', facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '10% off', daily: 3999, monthly: 119970 },
-    { unit: 'Unit 03', type: '1 BHK', rooms: ['1 Bedroom', '1 Drawing Room', '1 Kitchen', '1 Bathroom'], capacity: '2 Persons', facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '10% off', daily: 3499, monthly: 104970 },
-    { unit: 'Unit 04', type: '2 BHK', rooms: ['2 Bedrooms', '1 Drawing Room / Hall', '1 Kitchen', '1 Bathroom', '1 Party Terrace'], capacity: '4 Persons', facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '15% off', daily: 4999, monthly: 149970 },
-    { unit: 'Unit 05', type: '4 BHK', rooms: ['4 Rooms', '1 Kitchen', '1 Drawing Room', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '8 Persons', facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '12% off', daily: 6499, monthly: 194970 },
-    { unit: 'Unit 06', type: '6-Room Set', rooms: ['6 Rooms', '2 Kitchens', '2 Bathrooms',  '1 Balcony', '1 Party Terrace'], capacity: '12 Persons', facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '20% off', daily: 8999, monthly: 269970 },
-    
+    {
+      unit: 'Unit 01', type: '1 RK',
+      images: ['1RK_bathroom.jpg', '1RK_bedroom.jpg', '1RK_dining_area.jpg', '1RK_kitchen.jpg'],
+      rooms: ['1 Room', '1 Kitchen', '1 Drawing Room', '1 Bathroom'], capacity: '2 Persons',
+      facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '10% off', daily: 2944, monthly: 88320
+    },
+    {
+      unit: 'Unit 02', type: '2 RK',
+      images: ['2RK_bathroom.jpg', '2RK_bedroom.jpg', '2RK_Dining_Hall.jpg', '2RK_Kitchen.jpg'],
+      rooms: ['2 Rooms', '1 Kitchen', '1 Drawing Room', '1 Bathroom', '1 Balcony'], capacity: '4 Persons',
+      facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '10% off', daily: 3999, monthly: 119970
+    },
+    {
+      unit: 'Unit 03', type: '1 BHK',
+      images: ['1BHK_bathroom.jpg', '1BHK_bedroom.jpg', '1BHK_dining_area.jpg', '1BHK_Kitchen.jpg'],
+      rooms: ['1 Bedroom', '1 Drawing Room', '1 Kitchen', '1 Bathroom'], capacity: '2 Persons',
+      facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '10% off', daily: 3499, monthly: 104970
+    },
+    {
+      unit: 'Unit 04', type: '2 BHK',
+      images: ['2BHK_bathroom_full.jpg', '2BHK_bedrooms.jpg', '2BHK_Drawingroom.jpg', '2RK_Kitchen.jpg'],
+      rooms: ['2 Bedrooms', '1 Drawing Room / Hall', '1 Kitchen', '1 Bathroom', '1 Party Terrace'], capacity: '4 Persons',
+      facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '15% off', daily: 4999, monthly: 149970
+    },
+    {
+      unit: 'Unit 05', type: '4 BHK',
+      images: ['4BHK_bedroom.jpg', '4BHK_Drawing_Room.jpg', '4BHK_KITchen.jpg', '4RK_bathroom.jpg'],
+      rooms: ['4 Rooms', '1 Kitchen', '1 Drawing Room', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '8 Persons',
+      facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '12% off', daily: 6499, monthly: 194970
+    },
+    {
+      unit: 'Unit 06', type: '6-Room Set',
+      images: ['6BHK_bathroom_full.jpg', '6BHK_bedroom.jpg', '6BHK_Drawingrooms.jpg', 'kitchen.jpeg'],
+      rooms: ['6 Rooms', '2 Kitchens', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '12 Persons',
+      facilities: ['AC Available', 'Wi-Fi Available', 'Mini Fridge', 'Room Service', 'Laundry'], offer: '20% off', daily: 8999, monthly: 269970
+    }
   ];
 
   function formatINR(value) {
@@ -62,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function propertyCardHTML(property, cardIndex) {
-    var photos = [0, 1, 2, 3].map(function (photoIndex) {
+    var photos = property.images.map(function (imageName, photoIndex) {
       var unitNumber = parseInt(property.unit.replace(/\D/g, ''), 10);
-      var imagePath = 'images/units/unit-' + unitNumber + '/image-' + (photoIndex + 1) + '.jpg';
-      return '<div class="property-photo"><img class="photo-art" src="' + imagePath + '" alt="' + property.type + ' ' + property.unit + ' image ' + (photoIndex + 1) + '" loading="lazy"></div>';
+      var imagePath = 'images/units/unit-' + unitNumber + '/' + imageName;
+      return '<div class="property-photo"><img class="photo-art" src="' + imagePath + '" alt="' + property.type + ' ' + property.unit + ' view ' + (photoIndex + 1) + '" loading="lazy" decoding="async"></div>';
     }).join('');
     var details = property.rooms.map(function (detail) {
       return '<li>' + detail + '</li>';
