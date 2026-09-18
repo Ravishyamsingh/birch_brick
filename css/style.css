@@ -308,9 +308,11 @@ body.nav-open{overflow:hidden;}
 .footer-legal a{font-size:.85rem;color:rgba(255,255,255,.55);}
 .footer-legal a:hover{color:#fff;}
 .social-row{display:flex;gap:.7rem;}
-.social-row a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-on-dark);display:flex;align-items:center;justify-content:center;transition:background-color .2s var(--ease),border-color .2s var(--ease);}
+.social-row a{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-on-dark);display:flex;align-items:center;justify-content:center;color:#fff;transition:background-color .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease);}
 .social-row a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4);}
-.social-row svg{width:16px;height:16px;color:#fff;}
+.social-row a:hover{transform:translateY(-2px);}
+.social-row a:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
+.social-row svg{width:18px;height:18px;color:currentColor;display:block;}
 .copyright{font-size:.85rem;color:rgba(255,255,255,.45);}
 
 /* ---- Scroll reveal ---- */

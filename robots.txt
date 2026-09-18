@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace YOUR-DOMAIN.com with the final custom domain or your Cloudflare Pages domain.
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml

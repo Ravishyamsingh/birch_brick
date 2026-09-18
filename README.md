@@ -11,7 +11,10 @@ havenlane/
 ├── index.html      → page markup
 ├── css/style.css   → all styling (design tokens at the top of the file)
 ├── js/script.js    → nav, scroll reveal, search widget, testimonial slider, forms
-├── images/         → drop real photos here when ready (see note below)
+├── images/         → logo and unit photography
+├── _headers        → Cloudflare Pages security headers
+├── robots.txt      → crawler rules and sitemap location
+├── sitemap.xml     → homepage sitemap
 └── README.md
 ```
 
@@ -21,6 +24,25 @@ No build step needed. Either:
 - Double-click `index.html` to open it directly in a browser, or
 - In VS Code, use the **Live Server** extension and "Open with Live Server"
   on `index.html` (recommended for the smoothest experience).
+
+## Deploying to Cloudflare Pages
+
+This is a static site and does not require a framework, build command, or
+output directory.
+
+### Cloudflare dashboard
+
+1. Open **Workers & Pages** in Cloudflare and choose **Create application → Pages → Upload assets**.
+2. Upload the contents of this `havenlane` folder, including `index.html`,
+   `css`, `js`, `images`, `_headers`, `robots.txt`, and `sitemap.xml`.
+3. If you deploy through a connected Git repository instead, use `havenlane`
+   as the project root, leave the build command empty, and use `.` as the
+   output directory.
+4. Replace `YOUR-DOMAIN.com` in `robots.txt` and `sitemap.xml` with the final
+   Cloudflare Pages URL or custom domain, then redeploy.
+
+The `_headers` file is automatically read by Cloudflare Pages and adds basic
+security and privacy response headers. No local server or runtime is required.
 
 ## The property search
 
