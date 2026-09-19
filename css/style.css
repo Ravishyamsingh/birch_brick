@@ -426,6 +426,9 @@ section{scroll-margin-top:6rem;}
 .nav-link:hover svg{color:var(--coral-deep);}
 .mobile-nav .nav-link{display:flex;align-items:center;gap:.8rem;font-family:var(--font-display);font-size:2rem;}
 .mobile-nav .nav-link svg{width:25px;height:25px;color:var(--coral-deep);}
+.whatsapp-nav-link{color:#128C7E;}
+.whatsapp-nav-link:hover{color:#25D366;}
+.mobile-nav .whatsapp-nav-link{color:#128C7E;}
 
 .section-eyebrow{display:inline-block;color:var(--forest);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;}
 .about{background:var(--paper);padding:6.5rem 0;}
