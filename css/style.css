@@ -312,7 +312,7 @@ body.nav-open{overflow:hidden;}
 .social-row a:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4);}
 .social-row a:hover{transform:translateY(-2px);}
 .social-row a:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
-.social-row svg{width:18px;height:18px;color:currentColor;display:block;}
+.social-row svg{width:18px;height:18px;color:currentColor;fill:currentColor;display:block;}
 .copyright{font-size:.85rem;color:rgba(255,255,255,.45);}
 
 /* ---- Scroll reveal ---- */
