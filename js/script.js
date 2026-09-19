@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var photos = property.images.map(function (imageName, photoIndex) {
       var unitNumber = parseInt(property.unit.replace(/\D/g, ''), 10);
       var imagePath = 'images/units/unit-' + unitNumber + '/' + encodeURIComponent(imageName);
-      return '<div class="property-photo"><img class="photo-art" src="' + imagePath + '" alt="' + property.type + ' ' + property.unit + ' view ' + (photoIndex + 1) + '" loading="lazy" decoding="async"></div>';
+      return '<a class="property-photo-link" href="gallery.html?unit=' + unitNumber + '" aria-label="View all ' + property.type + ' ' + property.unit + ' photos"><div class="property-photo"><img class="photo-art" src="' + imagePath + '" alt="' + property.type + ' ' + property.unit + ' view ' + (photoIndex + 1) + '" loading="lazy" decoding="async"></div></a>';
     }).join('');
     var details = property.rooms.map(function (detail) {
       return '<li>' + detail + '</li>';
@@ -119,5 +119,33 @@ document.addEventListener('DOMContentLoaded', function () {
   if (propertyGrid) {
     propertyGrid.innerHTML = PROPERTIES.map(propertyCardHTML).join('');
     propertyGrid.querySelectorAll('[data-reveal]').forEach(observeReveal);
+  }
+
+  var galleryPage = document.getElementById('gallery-page');
+  if (galleryPage) {
+    var requestedUnit = new URLSearchParams(window.location.search).get('unit') || '';
+    var requestedUnitNumber = requestedUnit.replace(/\D/g, '');
+    var selectedProperty = PROPERTIES.find(function (property) {
+      return property.unit.replace(/\D/g, '') === requestedUnitNumber;
+    });
+
+    if (!selectedProperty) {
+      galleryPage.innerHTML = '<div class="gallery-empty"><h1>Home not found</h1><p>We could not find the requested home gallery.</p><a class="btn btn-primary" href="index.html#collections">Back to homes</a></div>';
+    } else {
+      var selectedUnitNumber = parseInt(selectedProperty.unit.replace(/\D/g, ''), 10);
+      var selectedMonthlyBeforeDiscount = selectedProperty.daily * 30;
+      var selectedMonthlyPrice = selectedMonthlyBeforeDiscount * (1 - MONTHLY_DISCOUNT);
+      var galleryImages = selectedProperty.images.map(function (imageName, photoIndex) {
+        var imagePath = 'images/units/unit-' + selectedUnitNumber + '/' + encodeURIComponent(imageName);
+        return '<figure class="gallery-image-card"><img src="' + imagePath + '" alt="' + selectedProperty.type + ' ' + selectedProperty.unit + ' photo ' + (photoIndex + 1) + '" loading="' + (photoIndex < 2 ? 'eager' : 'lazy') + '" decoding="async"><figcaption>Photo ' + (photoIndex + 1) + '</figcaption></figure>';
+      }).join('');
+
+      document.title = selectedProperty.type + ' ' + selectedProperty.unit + ' gallery — birchandbrick';
+      galleryPage.innerHTML =
+        '<a class="gallery-back-link" href="index.html#collections">← Back to all homes</a>' +
+        '<div class="gallery-page-heading"><div><span class="section-eyebrow">' + selectedProperty.unit + '</span><h1>' + selectedProperty.type + '</h1><p>All ' + selectedProperty.images.length + ' photos of this furnished home in Gurugram Sector 43.</p></div><span class="gallery-count-large">' + selectedProperty.images.length + ' photos</span></div>' +
+        '<div class="gallery-page-summary"><div><span>Price per day</span><strong>' + formatINR(selectedProperty.daily) + '</strong></div><div><span>Monthly stay · 30 days</span><strong>' + formatINR(selectedMonthlyPrice) + '</strong><small>After 5% monthly booking discount</small></div></div>' +
+        '<div class="gallery-image-grid" aria-label="All images of ' + selectedProperty.type + ' ' + selectedProperty.unit + '">' + galleryImages + '</div>';
+    }
   }
 });
