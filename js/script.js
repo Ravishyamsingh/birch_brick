@@ -53,32 +53,32 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       unit: 'Unit 01', type: '1 RK',
       images: ['1RK_bathroom.jpg', '1RK_bedroom.jpg', '1RK_dining_area.jpg', '1RK_kitchen.jpg'],
-      rooms: ['1 Room', '1 Kitchen', '1 Drawing Room', '1 Bathroom'], capacity: '2 Persons', daily: 2200
+      rooms: ['1 Room', '1 Kitchen', '1 Drawing Room', '1 Bathroom'], capacity: '2 Persons', daily: 2300
     },
     {
       unit: 'Unit 02', type: '2 RK',
       images: ['1RK_bedroom.jpg', '1RK_kitchen.jpg', '2RK_bedrooms.jpg', '2RKK_Drawingrooms.jpg', 'bathroom.jpeg', 'Comman_parking_area.jpg'],
-      rooms: ['2 Rooms', '1 Kitchen', '1 Drawing Room', '1 Bathroom', '1 Balcony'], capacity: '4 Persons', daily: 4400
+      rooms: ['2 Rooms', '1 Kitchen', '1 Drawing Room', '1 Bathroom', '1 Balcony'], capacity: '4 Persons', daily: 4500
     },
     {
       unit: 'Unit 03', type: '1 BHK',
       images: ['1BHK_bedroom.jpg', '1BHK_dining_area.jpg', '1BHK_Kitchen.jpg', '2BHK_bathroom_full.jpg', '2BHK_Drawingrooms.jpg', '4BHK_KITchen.jpg'],
-      rooms: ['1 Bedroom', '1 Drawing Room', '1 Kitchen', '1 Bathroom'], capacity: '2 Persons', daily: 2400
+      rooms: ['1 Bedroom', '1 Drawing Room', '1 Kitchen', '1 Bathroom'], capacity: '2 Persons', daily: 2500
     },
     {
       unit: 'Unit 04', type: '2 BHK',
       images: ['2BHK__bedroom.jpeg', '2BHK_bathroom_full.jpg', '2BHK_bathroom.jpg', '2BHK_bedroom.jpg', '2BHK_Drawingroom.jpg', '2BhK_Kitchen.jpg'],
-      rooms: ['2 Bedrooms', '1 Drawing Room / Hall', '1 Kitchen', '2 Bathrooms', '1 Party Terrace'], capacity: '4 Persons', daily: 4800
+      rooms: ['2 Bedrooms', '1 Drawing Room / Hall', '1 Kitchen', '2 Bathrooms', '1 Party Terrace'], capacity: '4 Persons', daily: 4900
     },
     {
       unit: 'Unit 05', type: '4 BHK',
       images: ['1RK_bedroom.jpg', '2BHK_bedroom.jpg', '2BHK_bedrooms.jpg', '4BHK_bedroomsss.jpg', '4BHK_Drawing_Room.jpg', '4BHK_KITchen.jpg', '4RK_bathroom.jpg', 'bathroom.jpeg'],
-      rooms: ['4 Rooms', '1 Kitchen', '1 Drawing Room', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '8 Persons', daily: 8500
+      rooms: ['4 Rooms', '1 Kitchen', '1 Drawing Room', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '8 Persons', daily: 8600
     },
     {
       unit: 'Unit 06', type: '6 Room Set',
       images: ['Terrace.jpg', '6_BHK_bedroom.jpg', '6bhk_terrace room2.jpg', '6bhk_terrace room.jpg', '6bhk_terrace kitchen.jpg', '6BHK_Drawingrooms.jpg', '6BHK_bedroomsss.jpg', '6BHK_bedroom.jpg', '6BHK_bathroom_full.jpg', '6BHKBED.jpeg'],
-      rooms: ['6 Rooms', '2 Kitchens', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '12 Persons', daily: 13300
+      rooms: ['6 Rooms', '2 Kitchens', '2 Bathrooms', '1 Balcony', '1 Party Terrace'], capacity: '12 Persons', daily: 13400
     }
   ];
 
