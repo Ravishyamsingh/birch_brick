@@ -124,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var galleryPage = document.getElementById('gallery-page');
   if (galleryPage) {
     var requestedUnit = new URLSearchParams(window.location.search).get('unit') || '';
-    var requestedUnitNumber = requestedUnit.replace(/\D/g, '');
+    var requestedUnitNumber = parseInt(requestedUnit.replace(/\D/g, ''), 10);
     var selectedProperty = PROPERTIES.find(function (property) {
-      return property.unit.replace(/\D/g, '') === requestedUnitNumber;
+      return parseInt(property.unit.replace(/\D/g, ''), 10) === requestedUnitNumber;
     });
 
     if (!selectedProperty) {
