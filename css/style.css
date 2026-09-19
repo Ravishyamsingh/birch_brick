@@ -366,10 +366,11 @@ body.nav-open{overflow:hidden;}
 .collections .section-head h2{font-size:clamp(2.2rem,4vw,3.6rem);}
 .collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;}
 .property-card{min-width:0;}
-.property-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3px;background:var(--sand-deep);aspect-ratio:1.75/1;overflow:hidden;}
+.property-gallery{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(150px,14vw,190px);gap:3px;background:var(--sand-deep);overflow:hidden;}
 .property-photo{min-width:0;min-height:0;overflow:hidden;background:var(--sand-deep);}
 .photo-art{width:100%;height:100%;object-fit:cover;transition:transform .45s var(--ease);}
 .property-card:hover .photo-art{transform:scale(1.025);}
+.photo-count{position:absolute;top:.8rem;right:.8rem;background:rgba(16,27,45,.82);color:#fff;border-radius:100px;padding:.35rem .65rem;font-size:.72rem;font-weight:700;letter-spacing:.02em;backdrop-filter:blur(5px);}
 .property-card .collection-body{padding:1.65rem 1.7rem 1.8rem;}
 .property-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.35rem;}
 .property-heading h3{font-size:1.8rem;margin-top:.15rem;}
@@ -388,7 +389,11 @@ body.nav-open{overflow:hidden;}
 .price-label{display:block;font-size:.75rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
 .property-price{font-size:1.55rem;color:var(--coral-deep);line-height:1.15;}
 .property-price span{font-size:.84rem;color:var(--ink-muted);}
-.monthly-price{font-size:.88rem;font-weight:600;color:var(--ink-muted);margin-top:.28rem;}
+.monthly-heading{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-muted);margin-top:.9rem;}
+.monthly-price{display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap;margin-top:.25rem;}
+.monthly-original{font-size:.78rem;color:var(--ink-muted);text-decoration:line-through;text-decoration-color:var(--coral-deep);}
+.monthly-price strong{font-size:.98rem;color:var(--forest-deep);}
+.monthly-note{font-size:.75rem;color:var(--coral-deep);margin-top:.3rem;}
 .footer-top{grid-template-columns:1fr auto;align-items:start;}
 .footer-location p{font-size:.92rem;color:rgba(255,255,255,.6);}
 
@@ -399,7 +404,7 @@ body.nav-open{overflow:hidden;}
 @media (max-width:600px){
   .hero-visual{min-height:420px;}
   .collections{padding-top:4.5rem;}
-  .property-gallery{aspect-ratio:1.4/1;}
+  .property-gallery{grid-auto-rows:clamp(125px,30vw,170px);}
   .property-card .collection-body{padding:1.35rem 1.25rem 1.5rem;}
   .property-heading h3{font-size:1.55rem;}
   .room-details{grid-template-columns:1fr;}
